@@ -17,9 +17,8 @@ export const metadata: Metadata = {
   description: "a hub for nice people",
 };
 
-import NavMenu from "@/components/navigation-menu";
 import FooterSection from "@/components/footer";
-import Navbar03Page from "@/components/navbar-03/navbar-03";
+import NavbarPage from "@/components/navbar/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 
 export default function RootLayout({
@@ -35,8 +34,7 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange>
-          {/* <NavMenu /> */}
-          <Navbar03Page />
+          <NavbarPage />
           {children}
           <FooterSection />
         </ThemeProvider>

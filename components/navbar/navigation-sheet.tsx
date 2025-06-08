@@ -3,7 +3,6 @@ import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/s
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import { collections, travelMenuItems } from "./config";
-import { Logo } from "./logo";
 
 export const NavigationSheet = () => {
   return (

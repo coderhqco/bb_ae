@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import Link from "next";
+import Link from "next/link";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog-updated";
 
 import { Calculator, Calendar, CreditCard, Settings, Smile } from "lucide-react";
@@ -17,19 +17,21 @@ import {
 import { NavMenu } from "./nav-menu";
 import { NavigationSheet } from "./navigation-sheet";
 import { User, Search } from "lucide-react";
-import CartSideBar from "@/components/navbar-03/cart-sidebar";
+import CartSideBar from "@/components/navbar/cart-sidebar";
 import SwitchTheme from "./switch-theme";
 import { DialogTitle } from "@radix-ui/react-dialog";
 
-const Navbar03Page = () => {
+const NavbarPage = () => {
   return (
-    <div className=" bg-muted">
+    <div className="bg-muted ">
       <nav className="h-16 bg-background border-b">
         <div className="h-full flex items-center justify-between max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-8">
-            <h1 className="text-3xl sm:text-5xl md:text-4xl font-bold !leading-[1.2] tracking-tight ">
+            <Link
+              href="/"
+              className="text-3xl sm:text-5xl md:text-4xl font-bold !leading-[1.2] tracking-tight ">
               BB.AE
-            </h1>
+            </Link>
 
             {/* Desktop Menu */}
             <NavMenu className="hidden md:block" />
@@ -45,7 +47,7 @@ const Navbar03Page = () => {
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[425px] bg-transparent ">
-                <DialogTitle className="sr-only">dfads</DialogTitle>
+                <DialogTitle className="sr-only">beautybrands.ae</DialogTitle>
                 <Command className="rounded-lg border shadow-md md:min-w-[450px]">
                   <CommandInput placeholder="Type a command or search..." />
                   <CommandList>
@@ -91,8 +93,13 @@ const Navbar03Page = () => {
               </DialogContent>
             </Dialog>
 
-            <Button variant="outline" className=" rounded-full sm:inline-flex cursor-pointer">
-              <User />
+            <Button
+              asChild
+              variant="outline"
+              className=" rounded-full sm:inline-flex cursor-pointer">
+              <Link href={"/login"}>
+                <User />
+              </Link>
             </Button>
             <CartSideBar />
             <SwitchTheme />
@@ -108,4 +115,4 @@ const Navbar03Page = () => {
   );
 };
 
-export default Navbar03Page;
+export default NavbarPage;
