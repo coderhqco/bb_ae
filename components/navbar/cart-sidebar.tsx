@@ -10,14 +10,20 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Badge } from "@/components/ui/badge";
 import { ShoppingBag, Minus, Plus, Trash, Box, CreditCard } from "lucide-react";
 
 export default function CartSideBar() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline" className=" sm:inline-flex py-2 rounded-full cursor-pointer">
+        <Button
+          variant="outline"
+          className="rounded-full cursor-pointer flex items-center justify-center relative">
           <ShoppingBag />
+          <Badge variant={"destructive"} className="rounded-full absolute -top-2 -right-2">
+            5
+          </Badge>
         </Button>
       </SheetTrigger>
       <SheetContent className="gap-2">
