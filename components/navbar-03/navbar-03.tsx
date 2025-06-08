@@ -16,8 +16,8 @@ import {
 
 import { NavMenu } from "./nav-menu";
 import { NavigationSheet } from "./navigation-sheet";
-import { User, ShoppingBag, Search } from "lucide-react";
-
+import { User, Search } from "lucide-react";
+import CartSideBar from "@/components/navbar-03/cart-sidebar";
 import SwitchTheme from "./switch-theme";
 import { DialogTitle } from "@radix-ui/react-dialog";
 
@@ -91,14 +91,10 @@ const Navbar03Page = () => {
               </DialogContent>
             </Dialog>
 
-            <Button variant="outline" className="hidden rounded-full sm:inline-flex cursor-pointer">
+            <Button variant="outline" className=" rounded-full sm:inline-flex cursor-pointer">
               <User />
             </Button>
-            <Button
-              variant="outline"
-              className="hidden sm:inline-flex py-2 rounded-full cursor-pointer">
-              <ShoppingBag />
-            </Button>
+            <CartSideBar />
             <SwitchTheme />
 
             {/* Mobile Menu */}
