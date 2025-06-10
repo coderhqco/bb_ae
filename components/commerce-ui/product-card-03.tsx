@@ -37,7 +37,7 @@ function ProductCard_03({
   tagText = "NEW COLLECTION",
 }: ProductCard_03Props = {}) {
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
+    <div className="group relative w-full flex flex-col overflow-hidden rounded-xl border border-gray-200 shadow-sm transition-all duration-300 hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
       {/* Badge */}
       {tagText && (
         <div className="absolute top-3 left-3 z-10">
