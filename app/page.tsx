@@ -1,3 +1,4 @@
+import ProductCard_03 from "@/components/commerce-ui/product-card-03";
 import Filters from "@/components/filter";
 import { FilterSheet } from "@/components/filter-sheet";
 import { SortSelect } from "@/components/sorting";
@@ -17,8 +18,13 @@ export default function Home() {
           <aside className="hidden lg:flex w-1/4 min-w-[220px] max-w-xs py-4 border rounded-2xl my-2 shadow">
             <Filters />
           </aside>
-          <section className="flex-1 border border-dashed rounded-xl p-1 px-2">
-            all the list of the products will be here...
+          <section className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 mx-auto border border-dashed rounded-xl p-1 px-2">
+            <ProductCard_03 />
+            <ProductCard_03 />
+            <ProductCard_03 />
+            <ProductCard_03 />
+            <ProductCard_03 />
+            {/* all the list of the products will be here... */}
           </section>
         </div>
       </main>
