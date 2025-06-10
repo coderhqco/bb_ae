@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
 import { ShoppingBag, Minus, Plus, Trash, Box, CreditCard } from "lucide-react";
+import Image from "next/image";
 
 export default function CartSideBar() {
   return (
@@ -46,7 +47,9 @@ export default function CartSideBar() {
               <div key={item} className="flex items-center gap-2 border-b-1 pb-2 mb-2 ">
                 {/* Image */}
                 <div className="h-20 w-20 bg-gray-100 rounded-md flex items-center justify-center overflow-hidden">
-                  <img
+                  <Image
+                    width={"90"}
+                    height={"90"}
                     src="/login-image.jpg"
                     alt="Product"
                     className="object-cover w-full h-full"

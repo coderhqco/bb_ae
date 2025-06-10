@@ -35,8 +35,13 @@ Switch.displayName = SwitchPrimitives.Root.displayName;
 const SwitchTheme = () => {
   const [isDarkMode, setIsDarkMode] = React.useState(false);
   const { setTheme } = useTheme();
+
   React.useEffect(() => {
-    isDarkMode ? setTheme("dark") : setTheme("light");
+    if (isDarkMode) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
   }, [isDarkMode]);
   return (
     <Switch

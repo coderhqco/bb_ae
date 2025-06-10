@@ -12,6 +12,7 @@ import {
   DialogTrigger,
 } from "@radix-ui/react-dialog";
 import { MinusCircle, PlusCircle, X } from "lucide-react";
+import Image from "next/image";
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 
 const DEFAULT_PLACEHOLDER_URL =
@@ -49,36 +50,48 @@ const ImageViewer_Basic = ({
       <DialogTrigger asChild>
         <div className={cn("cursor-pointer", className)}>
           {/* You can swap this with your preferred image optization technique, like using  next/image */}
-          <img
-            src={thumbnailUrl || imageUrl}
-            alt={`${imageTitle ?? "Image"} - Preview`}
-            width="100%"
-            className={cn(
-              "h-auto w-full rounded-lg object-contain transition-opacity hover:opacity-90",
-              classNameThumbnailViewer
-            )}
-            onError={handleImgError}
-          />
+          {thumbnailUrl && imageUrl && (
+            <Image
+              src={thumbnailUrl}
+              alt={`${imageTitle ?? "Image"} - Preview`}
+              width={100}
+              height={100}
+              className={cn(
+                "h-auto w-full rounded-lg object-contain transition-opacity hover:opacity-90",
+                classNameThumbnailViewer
+              )}
+              onError={handleImgError}
+            />
+          )}
+          {imageUrl && (
+            <Image
+              src={imageUrl}
+              alt={`${imageTitle ?? "Image"} - Preview`}
+              width={100}
+              height={100}
+              className={cn(
+                "h-auto w-full rounded-lg object-contain transition-opacity hover:opacity-90",
+                classNameThumbnailViewer
+              )}
+              onError={handleImgError}
+            />
+          )}
         </div>
       </DialogTrigger>
       <DialogPortal>
         <DialogOverlay className="fixed inset-0 z-50 bg-black/80" />
         <DialogContent className="bg-background fixed inset-0 z-50 flex flex-col items-center justify-center p-0">
           <DialogTitle className="sr-only">{imageTitle || "Image"}</DialogTitle>
-          <DialogDescription className="sr-only">
-            {imageTitle || "Image"}
-          </DialogDescription>
+          <DialogDescription className="sr-only">{imageTitle || "Image"}</DialogDescription>
           <div className="relative flex h-screen w-screen items-center justify-center">
-            <TransformWrapper
-              initialScale={1}
-              initialPositionX={0}
-              initialPositionY={0}
-            >
+            <TransformWrapper initialScale={1} initialPositionX={0} initialPositionY={0}>
               {({ zoomIn, zoomOut }) => (
                 <>
                   <TransformComponent>
                     {/* You can swap this with your preferred image optization technique, like using  next/image */}
-                    <img
+                    <Image
+                      width={"100"}
+                      height={"100"}
                       src={imageUrl}
                       alt={`${imageTitle ?? "Image"} - Full`}
                       className={cn(
@@ -93,15 +106,13 @@ const ImageViewer_Basic = ({
                       <button
                         onClick={() => zoomOut()}
                         className="cursor-pointer rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
-                        aria-label="Zoom out"
-                      >
+                        aria-label="Zoom out">
                         <MinusCircle className="size-6" />
                       </button>
                       <button
                         onClick={() => zoomIn()}
                         className="cursor-pointer rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
-                        aria-label="Zoom in"
-                      >
+                        aria-label="Zoom in">
                         <PlusCircle className="size-6" />
                       </button>
                     </div>
@@ -112,8 +123,7 @@ const ImageViewer_Basic = ({
             <DialogClose asChild>
               <button
                 className="absolute top-4 right-4 z-10 cursor-pointer rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
-                aria-label="Close"
-              >
+                aria-label="Close">
                 <X className="size-6" />
               </button>
             </DialogClose>

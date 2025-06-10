@@ -63,10 +63,10 @@ const NavbarPage = () => {
                       <span>Search Emoji</span>
                     </CommandItem>
                     <CommandItem>
-                      <a href="/" className="flex gap-2">
+                      <Link href="/" className="flex gap-2">
                         <Calculator />
                         <span>Calculator</span>
-                      </a>
+                      </Link>
                     </CommandItem>
                   </CommandGroup>
                   <CommandSeparator />
