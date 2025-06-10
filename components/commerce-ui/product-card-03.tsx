@@ -3,7 +3,7 @@ import ImageViewer from "@/components/commerce-ui/image-viewer-basic";
 import PriceFormatSale from "@/components/commerce-ui/price-format-sale";
 import StarRating_Fractions from "@/components/commerce-ui/star-rating-fractions";
 import { Button } from "@/components/ui/button";
-
+import Link from "next/link";
 const DEFAULT_IMAGE_URL =
   "https://raw.githubusercontent.com/stackzero-labs/ui/refs/heads/main/public/placeholders/headphone-1.jpg";
 
@@ -63,7 +63,7 @@ function ProductCard_03({
       </div>
 
       {/* Product details */}
-      <div className="flex flex-1 flex-col gap-3 p-4">
+      <Link href={"/dsfads"} className="flex flex-1 flex-col gap-3 p-4 ">
         <div>
           <h3 className="mb-1 text-lg font-semibold tracking-tight text-gray-900 dark:text-gray-100">
             {productName}
@@ -119,7 +119,7 @@ function ProductCard_03({
             Buy now
           </Button>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }
